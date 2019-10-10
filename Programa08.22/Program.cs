@@ -4,40 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Programa08._01
+namespace Programa08._22
 {
+    /// <summary>
+    /// 22.  Que calcule la media de 10 números.
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
         {
-            #region Variables
-            int numero = 0;
-            int contador = 0;
-            int i;
 
+            #region Variables
+            double suma = 0;
+            double media;
+            int totalDenumeros = 10;
             #endregion
 
-            Console.WriteLine("Programa que indica si el número ingresado es primo");
-            Console.Write("Introduzaca un número ");
-            numero = LeerNumero();
+            Console.WriteLine($"Programa que calcula la media de {totalDenumeros} números");
 
-            for (i = 1; i < numero; i++)
+            for (int i = 0; i < totalDenumeros; i++)
             {
-                if (numero % i == 0)
-                {
-                    contador++;
-                }
+                suma += LeerNumero();
             }
+            media = suma/ totalDenumeros;
 
-            if(contador == 2 || contador == 1 || contador == 0)
-            {
-                Console.WriteLine("El número es primo");
-            }
-            else
-            {
-                Console.WriteLine("El número no es primo");
-            }
-
+            Console.WriteLine($"El promedio es: {media}");
             Console.ReadLine();
         }
 
@@ -61,6 +52,6 @@ namespace Programa08._01
             #endregion
 
             return numeroA;
-        }//LeerNumero
+        }
     }
 }

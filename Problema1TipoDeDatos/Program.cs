@@ -14,32 +14,33 @@ namespace Problema1TipoDeDatos
             bool isNumero = false;
             #endregion
 
-            Console.WriteLine($"Programa que indica si un número esta entre el limite inferior {limiteInferior} y el limite superior {limiteSuperior}");
+            Console.WriteLine($"Programa que indica si un número esta entre el limite inferior ");
+            Console.Write($"{ limiteInferior} y el limite superior {limiteSuperior}");
             Console.WriteLine();
             Console.WriteLine("Escriba un número: ");
             strNumero = Console.ReadLine();
             isNumero = double.TryParse(strNumero, out numero);
             if (isNumero)
             {
-                if (numero == limiteInferior)
+                if (numero < limiteInferior)
+                {
+                    Console.WriteLine("El número es menor al limite inferior");
+                }
+                else if (numero == limiteInferior)
                 {
                     Console.WriteLine("El número esta en el limite inferior");
                 }
+                else if (limiteInferior <numero && limiteSuperior > numero)
+                {
+                    Console.WriteLine($"El número {numero} esta entre limite inferior y el limite superior");
+                }
                 else if (numero == limiteSuperior)
                 {
-                    Console.WriteLine("El número esta en el limte superior");
-                }
-                else if (numero < limiteInferior)
-                {
-                    Console.WriteLine($"El número {numero} esta abajo del limite inferior");
-                }
-                else if (numero > limiteSuperior)
-                {
-                    Console.WriteLine($"El número {numero} esta arriba del limite inferior");
+                    Console.WriteLine($"El número {numero} esta en el limite superior");
                 }
                 else
                 {
-                    Console.WriteLine($"El número {numero} esta entre limite inferior y el limite superior");
+                    Console.WriteLine($"El número {numero} es mayor al limite superior");
                 }
             }
             else
